@@ -1,0 +1,217 @@
+[
+  {
+    "run_start": "2026-09-20T17:36:27.847081",
+    "run_end": "2026-09-20T17:37:10.186549",
+    "overall_status": "SUCCESS",
+    "tasks": [
+      {
+        "task": "extract_file_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('/home/claude/project/src/../data/raw/file_raw/diabetic_data.csv', 101766)"
+      },
+      {
+        "task": "extract_api_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('/home/claude/project/src/../data/raw/api_raw/icd9_lookup_cache.csv', 40)"
+      },
+      {
+        "task": "extract_document_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('/home/claude/project/src/../data/raw/document_raw/specialty_feedback_notes.csv', 14)"
+      },
+      {
+        "task": "transform_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('/home/claude/project/src/../data/staging/encounters_clean.csv', 69990, 31776)"
+      },
+      {
+        "task": "integrate_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('/home/claude/project/src/../data/staging/integrated_encounters.csv', 69990)"
+      },
+      {
+        "task": "load_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('/home/claude/project/src/../db/hospital_mart.db', {'admissions': 69990, 'diagnoses': 69990, 'patient_summary': 69990, 'readmissions': 69990, 'diagnosis_reference': 40, 'specialty_feedback': 14})"
+      }
+    ]
+  },
+  {
+    "run_start": "2026-09-21T00:24:39.607089",
+    "run_end": "2026-09-21T00:26:02.024445",
+    "overall_status": "SUCCESS",
+    "tasks": [
+      {
+        "task": "extract_file_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\file_raw\\\\diabetic_data.csv', 101766)"
+      },
+      {
+        "task": "extract_api_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\api_raw\\\\icd9_lookup_cache.csv', 40)"
+      },
+      {
+        "task": "extract_document_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\document_raw\\\\specialty_feedback_notes.csv', 14)"
+      },
+      {
+        "task": "transform_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\staging\\\\encounters_clean.csv', 69990, 31776)"
+      },
+      {
+        "task": "integrate_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\staging\\\\integrated_encounters.csv', 69990)"
+      },
+      {
+        "task": "load_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\db\\\\hospital_mart.db', {'admissions': 69990, 'diagnoses': 69990, 'patient_summary': 69990, 'readmissions': 69990, 'diagnosis_reference': 40, 'specialty_feedback': 14})"
+      }
+    ]
+  },
+  {
+    "run_start": "2026-09-21T00:56:01.167358",
+    "run_end": "2026-09-21T00:56:22.231717",
+    "overall_status": "SUCCESS",
+    "tasks": [
+      {
+        "task": "extract_file_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\file_raw\\\\diabetic_data.csv', 101766)"
+      },
+      {
+        "task": "extract_api_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\api_raw\\\\icd9_lookup_cache.csv', 60)"
+      },
+      {
+        "task": "extract_document_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\document_raw\\\\specialty_feedback_notes.csv', 14)"
+      },
+      {
+        "task": "transform_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\staging\\\\encounters_clean.csv', 69990, 31776)"
+      },
+      {
+        "task": "integrate_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\staging\\\\integrated_encounters.csv', 69990)"
+      },
+      {
+        "task": "load_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\db\\\\hospital_mart.db', {'admissions': 69990, 'diagnoses': 69990, 'patient_summary': 69990, 'readmissions': 69990, 'diagnosis_reference': 60, 'specialty_feedback': 14})"
+      }
+    ]
+  },
+  {
+    "run_start": "2026-09-22T02:04:37.863197",
+    "run_end": "2026-09-22T02:05:35.579868",
+    "overall_status": "SUCCESS",
+    "tasks": [
+      {
+        "task": "extract_file_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\file_raw\\\\diabetic_data.csv', 101766)"
+      },
+      {
+        "task": "extract_api_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\api_raw\\\\icd9_lookup_cache.csv', 60)"
+      },
+      {
+        "task": "extract_document_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\document_raw\\\\specialty_feedback_notes.csv', 14)"
+      },
+      {
+        "task": "transform_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\staging\\\\encounters_clean.csv', 69990, 31776)"
+      },
+      {
+        "task": "integrate_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\staging\\\\integrated_encounters.csv', 69990)"
+      },
+      {
+        "task": "load_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\db\\\\hospital_mart.db', {'admissions': 69990, 'diagnoses': 69990, 'patient_summary': 69990, 'readmissions': 69990, 'diagnosis_reference': 60, 'specialty_feedback': 14})"
+      }
+    ]
+  },
+  {
+    "run_start": "2026-09-22T02:17:17.774215",
+    "run_end": "2026-09-22T02:18:32.987816",
+    "overall_status": "SUCCESS",
+    "tasks": [
+      {
+        "task": "extract_file_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\file_raw\\\\diabetic_data.csv', 101766)"
+      },
+      {
+        "task": "extract_api_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\api_raw\\\\icd9_lookup_cache.csv', 60)"
+      },
+      {
+        "task": "extract_document_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\raw\\\\document_raw\\\\specialty_feedback_notes.csv', 14)"
+      },
+      {
+        "task": "transform_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\staging\\\\encounters_clean.csv', 69990, 31776)"
+      },
+      {
+        "task": "integrate_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\data\\\\staging\\\\integrated_encounters.csv', 69990)"
+      },
+      {
+        "task": "load_task",
+        "status": "SUCCESS",
+        "attempt": 1,
+        "result": "('C:\\\\Users\\\\mohnish jakhar\\\\Desktop\\\\7th sem\\\\notes\\\\hospital_readmission_pipeline1.0\\\\src\\\\..\\\\db\\\\hospital_mart.db', {'admissions': 69990, 'diagnoses': 69990, 'patient_summary': 69990, 'readmissions': 69990, 'diagnosis_reference': 60, 'specialty_feedback': 14, 'v_readmission_kpis (view)': 1, 'v_high_risk_cohort (view)': 6602})"
+      }
+    ]
+  }
+]

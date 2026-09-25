@@ -1,0 +1,5 @@
+DEPARTMENT: ObstetricsandGynecology
+DOCUMENT_TYPE: Ob/Gyn Inpatient Discharge Summary
+DOCUMENT_ID: DOC-OBGYN-013
+CONTENT:
+Inpatient stay concluded with stable vital signs. Postpartum and postoperative care reviewed in detail with patient and partner. No concerns or questions voiced; follow-up visit arranged.

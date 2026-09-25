@@ -1,0 +1,5 @@
+DEPARTMENT: Orthopedics-Reconstructive
+DOCUMENT_TYPE: Complex Joint Reconstruction Follow-up Summary
+DOCUMENT_ID: DOC-ORTHOREC-008
+CONTENT:
+Discharge instructions given to patient. Note indicates patient previously missed a follow-up physical therapy rehabilitation session. Patient reported some confusion regarding weight-bearing restrictions. Emphasized necessity of strict adherence to rehabilitation protocol.

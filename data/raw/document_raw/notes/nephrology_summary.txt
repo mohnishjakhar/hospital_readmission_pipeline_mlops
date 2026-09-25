@@ -1,0 +1,5 @@
+DEPARTMENT: Nephrology
+DOCUMENT_TYPE: Renal Consult & Discharge Summary
+DOCUMENT_ID: DOC-NEPH-006
+CONTENT:
+Evaluation of renal function parameters stable for discharge. However, patient expressed feeling confused about stringent dietary potassium and fluid restrictions. Patient acknowledged difficulty balancing dietary limitations with diabetes meal planning. Outpatient renal dietary counseling referral initiated.

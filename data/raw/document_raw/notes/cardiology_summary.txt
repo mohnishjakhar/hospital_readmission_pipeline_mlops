@@ -1,0 +1,5 @@
+DEPARTMENT: Cardiology
+DOCUMENT_TYPE: Discharge Counseling & Patient Follow-up Summary
+DOCUMENT_ID: DOC-CARD-001
+CONTENT:
+Patient admitted for management of cardiovascular complications. During discharge education, patient expressed significant difficulty understanding new multi-drug cardiac medication schedule. Previous chart history confirms non-compliant behavior with diuretic therapy. Patient reported confusion regarding fluid restriction targets. Urgent outpatient follow-up recommended within 7 days.

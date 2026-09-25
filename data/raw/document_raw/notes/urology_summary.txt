@@ -1,0 +1,5 @@
+DEPARTMENT: Urology
+DOCUMENT_TYPE: Urologic Post-Intervention Care Plan
+DOCUMENT_ID: DOC-UROL-012
+CONTENT:
+Post-procedure catheter care and hydration guidelines thoroughly reviewed. Patient verbalized complete understanding and reported no confusion or discomfort. Routine outpatient follow-up scheduled.

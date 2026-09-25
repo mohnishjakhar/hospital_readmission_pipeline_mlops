@@ -1,0 +1,21 @@
+{
+  "report_timestamp": "2026-09-22T02:17:34.599797",
+  "source_dataset": "UCI Diabetes 130-US Hospitals (diabetic_data.csv)",
+  "initial_raw_records": 101766,
+  "rejected_expired_or_hospice": 2423,
+  "rejected_repeat_patient_visits": 29353,
+  "rejected_invalid_mandatory_data": 0,
+  "exact_duplicates_removed": 0,
+  "total_rejected_quarantined": 31776,
+  "curated_clean_records": 69990,
+  "retention_rate_pct": 68.78,
+  "data_quality_rules": {
+    "sentinel_codes_replaced": "PASSED ('?' converted to NA)",
+    "mandatory_fields_validated": "PASSED (encounter_id, patient_nbr, readmitted)",
+    "length_of_stay_domain_bounds": "PASSED (1 to 14 days)",
+    "hospice_and_deceased_quarantined": "PASSED (disposition codes 11, 13, 14, 19, 20, 21)",
+    "repeat_encounter_deduplicated": "PASSED (first encounter per patient retained)",
+    "patient_safe_surrogate_key": "PASSED (SHA-256 pseudonymization, raw IDs dropped)",
+    "feature_engineering_completed": "PASSED (length_of_stay, prior_admissions, diagnosis_count, medication_count, high_risk_flag, readmitted_30d)"
+  }
+}

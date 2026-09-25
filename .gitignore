@@ -1,0 +1,26 @@
+# Environment & secrets
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Database artifacts
+db/*.db
+db/*.sqlite3
+
+# Airflow
+airflow.cfg
+airflow.db
+standalone_admin_password.txt
+
+# IDE
+.vscode/
+.idea/

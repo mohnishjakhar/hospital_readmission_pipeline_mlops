@@ -1,0 +1,5 @@
+DEPARTMENT: Surgery-General
+DOCUMENT_TYPE: Post-Operative Surgical Discharge Summary
+DOCUMENT_ID: DOC-SURG-005
+CONTENT:
+Post-operative course was uneventful. Incision clean, dry, and intact. Detailed wound care instructions provided verbally and in printed format. Patient confirmed understanding of infection signs and pain medication tapering. Follow-up surgical clinic visit booked.

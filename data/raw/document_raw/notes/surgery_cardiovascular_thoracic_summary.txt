@@ -1,0 +1,5 @@
+DEPARTMENT: Surgery-Cardiovascular/Thoracic
+DOCUMENT_TYPE: Cardiothoracic Post-Operative Summary
+DOCUMENT_ID: DOC-CTSURG-011
+CONTENT:
+Cardiothoracic surgical recovery progress reviewed. Patient reported considerable confusion regarding sternal precautions and post-discharge physical activity restrictions. Nurse navigator scheduled outreach call to address patient difficulty with daily self-monitoring.

@@ -1,0 +1,5 @@
+DEPARTMENT: Radiologist
+DOCUMENT_TYPE: Interventional Radiology Inpatient Note
+DOCUMENT_ID: DOC-RAD-014
+CONTENT:
+Procedure completed without immediate complication. Note: No direct discharge counseling or patient education documented for this department as service was limited to procedural imaging consult.

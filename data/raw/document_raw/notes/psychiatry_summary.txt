@@ -1,0 +1,5 @@
+DEPARTMENT: Psychiatry
+DOCUMENT_TYPE: Psychiatric Safety & Discharge Protocol
+DOCUMENT_ID: DOC-PSYCH-010
+CONTENT:
+Multidisciplinary psychiatric evaluation completed. Patient demonstrated clear understanding of safety crisis plan and outpatient psychotropic medication management. Family member confirmed supervision. No confusion noted regarding emergency contact resources.

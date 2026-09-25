@@ -1,0 +1,5 @@
+DEPARTMENT: InternalMedicine
+DOCUMENT_TYPE: Post-Discharge Care Plan
+DOCUMENT_ID: DOC-INTMED-002
+CONTENT:
+Comprehensive internal medicine review completed prior to discharge. Patient demonstrated clear comprehension of oral hypoglycemic medications and insulin self-administration. Patient asked relevant questions and affirmed confidence in following post-discharge regimen without confusion. No acute barriers to follow-up noted.

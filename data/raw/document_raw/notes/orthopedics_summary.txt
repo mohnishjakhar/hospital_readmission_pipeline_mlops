@@ -1,0 +1,5 @@
+DEPARTMENT: Orthopedics
+DOCUMENT_TYPE: Musculoskeletal Rehabilitation Discharge Note
+DOCUMENT_ID: DOC-ORTHO-007
+CONTENT:
+Mobility assessment demonstrated safe transfer and ambulation with assistive device. Physical therapy home exercises reviewed with patient and spouse. No cognitive impairment or instructions confusion observed. Home health therapy scheduled.

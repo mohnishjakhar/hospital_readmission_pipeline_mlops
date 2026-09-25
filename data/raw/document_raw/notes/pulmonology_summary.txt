@@ -1,0 +1,5 @@
+DEPARTMENT: Pulmonology
+DOCUMENT_TYPE: Respiratory Care & Inhaler Assessment
+DOCUMENT_ID: DOC-PULM-009
+CONTENT:
+Patient treated for respiratory compromise. During discharge teach-back, patient experienced persistent difficulty demonstrating proper inhaler and spacer technique despite repeated nursing instruction. Follow-up respiratory therapy visit strongly advised within 5 days.

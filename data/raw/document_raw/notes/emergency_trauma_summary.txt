@@ -1,0 +1,5 @@
+DEPARTMENT: Emergency/Trauma
+DOCUMENT_TYPE: Emergency Discharge & Triage Summary
+DOCUMENT_ID: DOC-ER-003
+CONTENT:
+Patient presented via emergency department with acute symptoms. Discharge counseling was expedited due to high departmental census. Patient appeared confused about follow-up steps and outpatient clinic referral location. Records indicate patient previously missed scheduled follow-up visits. High risk of post-discharge readmission noted.

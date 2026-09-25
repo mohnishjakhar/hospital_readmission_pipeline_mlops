@@ -1,0 +1,5 @@
+DEPARTMENT: Family/GeneralPractice
+DOCUMENT_TYPE: Comprehensive Outpatient Discharge Review
+DOCUMENT_ID: DOC-FAMPRACT-004
+CONTENT:
+Routine discharge protocol completed with family physician and primary caregiver present. Caregiver actively engaged and confirmed medication list. Patient reported no difficulty with daily activities or understanding instructions. Follow-up appointment scheduled at community health center in 14 days.
