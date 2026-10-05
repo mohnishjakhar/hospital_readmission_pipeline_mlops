@@ -24,3 +24,6 @@ standalone_admin_password.txt
 # IDE
 .vscode/
 .idea/
+
+#docs
+docs/
