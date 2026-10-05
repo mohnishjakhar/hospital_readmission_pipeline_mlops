@@ -16,3 +16,12 @@ extraction_timestamp,source_type,source_name,status,row_count,error_message
 2026-09-22T02:17:17.977225,file,UCI Diabetes 130-US Hospitals (diabetic_data.csv),SUCCESS,101766,
 2026-09-22T02:17:21.249146,api,NLM Clinical Tables ICD-9-CM API (icd9cm_dx/v3),SUCCESS,60,"matched=60, fallback=0, not_found=0"
 2026-09-22T02:17:21.257860,document,Clinical Discharge & Feedback Documents (raw TXT files),SUCCESS,14,
+2026-10-06T01:23:27.271442,file,UCI Diabetes 130-US Hospitals (diabetic_data.csv),SUCCESS,101766,
+2026-10-06T01:23:32.124535,api,NLM Clinical Tables ICD-9-CM API (icd9cm_dx/v3),SUCCESS,60,"matched=60, fallback=0, not_found=0"
+2026-10-06T01:23:32.338490,document,Clinical Discharge & Feedback Documents (raw TXT files),SUCCESS,14,
+2026-10-06T01:28:32.311280,file,UCI Diabetes 130-US Hospitals (diabetic_data.csv),SUCCESS,101766,
+2026-10-06T01:28:35.815314,api,NLM Clinical Tables ICD-9-CM API (icd9cm_dx/v3),SUCCESS,60,"matched=60, fallback=0, not_found=0"
+2026-10-06T01:28:35.836420,document,Clinical Discharge & Feedback Documents (raw TXT files),SUCCESS,14,
+2026-10-06T01:35:14.971346,file,UCI Diabetes 130-US Hospitals (diabetic_data.csv),SUCCESS,101766,
+2026-10-06T01:35:18.753024,api,NLM Clinical Tables ICD-9-CM API (icd9cm_dx/v3),SUCCESS,60,"matched=60, fallback=0, not_found=0"
+2026-10-06T01:35:18.779793,document,Clinical Discharge & Feedback Documents (raw TXT files),SUCCESS,14,

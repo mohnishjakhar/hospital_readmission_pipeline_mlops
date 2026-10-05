@@ -190,6 +190,9 @@ def load():
         # Create indexes for analytical performance
         with engine.connect() as conn:
             try:
+                conn.execute(text("CREATE INDEX IF NOT EXISTS idx_adm_surrogate ON admissions(surrogate_key);"))
+                conn.execute(text("CREATE INDEX IF NOT EXISTS idx_diag_surrogate ON diagnoses(surrogate_key);"))
+                conn.execute(text("CREATE INDEX IF NOT EXISTS idx_readm_surrogate ON readmissions(surrogate_key);"))
                 conn.execute(text("CREATE INDEX IF NOT EXISTS idx_readm_target ON readmissions(readmitted_30d);"))
                 conn.execute(text("CREATE INDEX IF NOT EXISTS idx_readm_age ON readmissions(age_group);"))
                 conn.execute(text("CREATE INDEX IF NOT EXISTS idx_readm_risk ON readmissions(high_risk_flag);"))

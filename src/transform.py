@@ -138,9 +138,10 @@ def transform():
     df = df[~dup_patient_mask].copy()
 
     # 6. Generate patient-safe surrogate key; remove direct hospital patient identifiers
-    df["surrogate_key"] = df.apply(
-        lambda r: make_surrogate_key(r["encounter_id"], r["patient_nbr"]), axis=1
-    )
+    df["surrogate_key"] = [
+        hashlib.sha256(f"{eid}-{pid}".encode()).hexdigest()[:16]
+        for eid, pid in zip(df["encounter_id"], df["patient_nbr"])
+    ]
 
     # 7. Standardize admission, discharge, and source fields using ID mappings
     adm_map, dsch_map, src_map = load_id_mappings()
