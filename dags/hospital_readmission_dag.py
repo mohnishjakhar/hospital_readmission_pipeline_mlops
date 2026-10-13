@@ -1,10 +1,10 @@
 """
 hospital_readmission_dag.py
 ----------------------------
-Official Apache Airflow 2.x DAG for Hospital Readmission Analytics Pipeline.
+Official Apache Airflow 2.x DAG for Hospital Readmission Analytics & Clinical MLOps Pipeline.
 
-Implements multi-source data ingestion, validation, integration, and storage
-across three segregated healthcare data sources:
+Implements multi-source data ingestion, validation, integration, analytical data mart loading,
+and full MLOps pipeline execution across segregated healthcare data sources:
 1. Primary Hospital Encounter CSV (file_raw)
 2. NLM Clinical Tables ICD-9-CM REST API (api_raw)
 3. Clinical Discharge & Feedback Unstructured Documents (document_raw)
@@ -12,7 +12,18 @@ across three segregated healthcare data sources:
 DAG Dependency Graph:
     extract_file_task     ---\\
     extract_api_task      ----+--> transform_task --> integrate_task --> load_db_task
-    extract_document_task ---/
+    extract_document_task ---/                                                │
+                                                                              ▼
+                                                                       ml_features_task
+                                                                              │
+                                                                              ▼
+                                                                        ml_train_task
+                                                                              │
+                                                                              ▼
+                                                                       ml_explain_task
+                                                                              │
+                                                                              ▼
+                                                                       ml_monitor_task
 """
 
 import sys
@@ -21,8 +32,11 @@ from datetime import datetime, timedelta
 
 # Ensure src/ modules are importable in Airflow worker context
 SRC_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if SRC_DIR not in sys.path:
     sys.path.insert(0, SRC_DIR)
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 try:
     from airflow import DAG
@@ -32,6 +46,7 @@ except ImportError:
     AIRFLOW_AVAILABLE = False
 
 
+# Part 1: Data Engineering Callables
 def task_extract_file(**kwargs):
     from extract_file import extract
     path, count = extract()
@@ -68,6 +83,31 @@ def task_load_db(**kwargs):
     return {"target": target, "table_counts": counts}
 
 
+# Part 2: MLOps Callables
+def task_ml_features(**kwargs):
+    from ml_features import run_feature_pipeline
+    res = run_feature_pipeline()
+    return {"features": len(res["feature_names"]), "train_shape": str(res["X_train_transformed"].shape)}
+
+
+def task_ml_train(**kwargs):
+    from ml_train import run_training_pipeline
+    res = run_training_pipeline()
+    return {"champion": res["champion_name"], "key": res["champion_key"]}
+
+
+def task_ml_explain(**kwargs):
+    from ml_explain import run_explainability_pipeline
+    res = run_explainability_pipeline()
+    return {"cases_generated": len(res["case_studies"])}
+
+
+def task_ml_monitor(**kwargs):
+    from ml_monitor import run_monitoring_audit
+    res = run_monitoring_audit()
+    return {"retrain_recommended": res["retraining_decision"]["retrain_recommended"]}
+
+
 default_args = {
     "owner": "hospital_data_engineering",
     "depends_on_past": False,
@@ -82,12 +122,13 @@ if AIRFLOW_AVAILABLE:
     with DAG(
         dag_id="hospital_readmission_pipeline",
         default_args=default_args,
-        description="Multi-source healthcare ETL pipeline for hospital readmission analytics",
+        description="Multi-source healthcare ETL & MLOps pipeline for hospital readmission analytics",
         schedule_interval="@daily",
         catchup=False,
-        tags=["healthcare", "data_engineering", "multi_source", "readmission"],
+        tags=["healthcare", "data_engineering", "multi_source", "readmission", "mlops"],
     ) as dag:
 
+        # Part 1 Tasks
         t_extract_file = PythonOperator(
             task_id="extract_file_task",
             python_callable=task_extract_file,
@@ -124,9 +165,35 @@ if AIRFLOW_AVAILABLE:
             doc_md="Load curated dataset into analytical tables and data marts in PostgreSQL/SQLite",
         )
 
+        # Part 2 MLOps Tasks
+        t_ml_features = PythonOperator(
+            task_id="ml_features_task",
+            python_callable=task_ml_features,
+            doc_md="Feature engineering, stratified 70/15/15 train/val/test split, and ColumnTransformer fitting",
+        )
+
+        t_ml_train = PythonOperator(
+            task_id="ml_train_task",
+            python_callable=task_ml_train,
+            doc_md="Multi-model training (LogReg, RF, XGBoost), MLflow experiment tracking, and model registry",
+        )
+
+        t_ml_explain = PythonOperator(
+            task_id="ml_explain_task",
+            python_callable=task_ml_explain,
+            doc_md="SHAP TreeExplainer global beeswarm & local patient waterfall factor attribution",
+        )
+
+        t_ml_monitor = PythonOperator(
+            task_id="ml_monitor_task",
+            python_callable=task_ml_monitor,
+            doc_md="Continuous monitoring: KS-test/PSI feature drift, demographic subgroup equity, retraining policy",
+        )
+
         # Explicit DAG dependencies
         t_extract_file >> t_transform
         [t_transform, t_extract_api, t_extract_doc] >> t_integrate >> t_load_db
+        t_load_db >> t_ml_features >> t_ml_train >> t_ml_explain >> t_ml_monitor
 
 
 if __name__ == "__main__":
@@ -135,6 +202,6 @@ if __name__ == "__main__":
         dag.test()
     else:
         print("Apache Airflow is not installed in the local Python environment.")
-        print("Executing pipeline via standalone DAG runner (src/pipeline_dag.py)...")
+        print("Executing full pipeline via standalone DAG runner (src/pipeline_dag.py --mlops)...")
         from pipeline_dag import run_pipeline
-        run_pipeline()
+        run_pipeline(with_mlops=True)
