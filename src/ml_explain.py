@@ -42,6 +42,7 @@ if PROJECT_ROOT not in sys.path:
 
 from src.ml_features import (
     transform_raw_records,
+    load_saved_preprocessor,
     BASE_DIR,
     MODELS_DIR,
     DATA_STAGING_DIR,
@@ -138,7 +139,7 @@ def compute_global_shap_explanations(
     if not os.path.exists(val_raw_path):
         raise FileNotFoundError(f"Validation parquet not found at: {val_raw_path}. Run src/ml_train.py first.")
 
-    preprocessor = joblib.load(preproc_path)
+    preprocessor = load_saved_preprocessor(preproc_path)
     df_val_raw = pd.read_parquet(val_raw_path)
 
     # Sample for fast, accurate SHAP computation
@@ -236,7 +237,7 @@ def explain_single_encounter(
       5. Returns risk tier, calibrated probability, and actionable clinical talking points.
     """
     champion_model, explainer, feature_names = get_champion_and_explainer()
-    preprocessor = joblib.load(PREPROCESSOR_SAVE_PATH)
+    preprocessor = load_saved_preprocessor(PREPROCESSOR_SAVE_PATH)
 
     # Convert single patient dict to DataFrame
     df_single = pd.DataFrame([patient_record])

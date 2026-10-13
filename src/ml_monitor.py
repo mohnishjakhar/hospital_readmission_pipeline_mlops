@@ -39,6 +39,7 @@ from src.ml_features import (
     NUMERIC_FEATURES,
     CATEGORICAL_FEATURES,
     PREPROCESSOR_SAVE_PATH,
+    load_saved_preprocessor,
     transform_raw_records,
 )
 from src.ml_train import (
@@ -310,7 +311,7 @@ def run_monitoring_audit() -> Dict[str, Any]:
     # 2. Subgroup Fairness Evaluation
     logger.info("Auditing demographic subgroup fairness...")
     champion_model = joblib.load(CHAMPION_MODEL_PATH)
-    preprocessor = joblib.load(PREPROCESSOR_SAVE_PATH)
+    preprocessor = load_saved_preprocessor(PREPROCESSOR_SAVE_PATH)
     X_test_trans = preprocessor.transform(df_test)
 
     y_test_prob = champion_model.predict_proba(X_test_trans)[:, 1]

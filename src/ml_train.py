@@ -75,6 +75,7 @@ from src.ml_features import (
     MLRUNS_DIR,
     DATA_STAGING_DIR,
     PREPROCESSOR_SAVE_PATH,
+    load_saved_preprocessor,
     FEATURE_NAMES_SAVE_PATH,
     IMBALANCE_METADATA_PATH,
 )
@@ -617,7 +618,7 @@ def run_training_pipeline(force_recompute_features: bool = False) -> Dict[str, A
         y_test = splits["y_test"].values
     else:
         logger.info("Loading precomputed splits and preprocessor...")
-        preprocessor = joblib.load(PREPROCESSOR_SAVE_PATH)
+        preprocessor = load_saved_preprocessor(PREPROCESSOR_SAVE_PATH)
         X_train_raw = pd.read_parquet(os.path.join(DATA_STAGING_DIR, "X_train_raw.parquet"))
         X_val_raw = pd.read_parquet(os.path.join(DATA_STAGING_DIR, "X_val_raw.parquet"))
         X_test_raw = pd.read_parquet(os.path.join(DATA_STAGING_DIR, "X_test_raw.parquet"))

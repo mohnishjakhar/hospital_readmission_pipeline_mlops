@@ -27,6 +27,7 @@ from src.ml_features import (
     NUMERIC_FEATURES,
     CATEGORICAL_FEATURES,
     PREPROCESSOR_SAVE_PATH,
+    load_saved_preprocessor,
     FEATURE_NAMES_SAVE_PATH,
     IMBALANCE_METADATA_PATH,
 )
@@ -108,7 +109,7 @@ class TestMLFeaturesPhase1(unittest.TestCase):
         self.assertTrue(os.path.exists(PREPROCESSOR_SAVE_PATH), "Preprocessor file missing!")
         self.assertTrue(os.path.exists(FEATURE_NAMES_SAVE_PATH), "Feature names file missing!")
 
-        preprocessor = joblib.load(PREPROCESSOR_SAVE_PATH)
+        preprocessor = load_saved_preprocessor(PREPROCESSOR_SAVE_PATH)
         with open(FEATURE_NAMES_SAVE_PATH, "r") as f:
             feature_names = json.load(f)
 

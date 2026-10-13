@@ -33,6 +33,7 @@ if PROJECT_ROOT not in sys.path:
 
 from src.ml_features import (
     transform_raw_records,
+    load_saved_preprocessor,
     PREPROCESSOR_SAVE_PATH,
     FEATURE_NAMES_SAVE_PATH,
     MODELS_DIR,
@@ -80,7 +81,7 @@ def load_serving_artifacts():
         
         logger.info("Loading Champion Model into memory from: %s", CHAMPION_MODEL_PATH)
         MODEL_CACHE["model"] = joblib.load(CHAMPION_MODEL_PATH)
-        MODEL_CACHE["preprocessor"] = joblib.load(PREPROCESSOR_SAVE_PATH)
+        MODEL_CACHE["preprocessor"] = load_saved_preprocessor(PREPROCESSOR_SAVE_PATH)
 
         if os.path.exists(CHAMPION_METADATA_PATH):
             with open(CHAMPION_METADATA_PATH, "r", encoding="utf-8") as f:

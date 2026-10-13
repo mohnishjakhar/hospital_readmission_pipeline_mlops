@@ -465,6 +465,29 @@ def compute_target_imbalance_metadata(y_train: pd.Series) -> Dict[str, Any]:
 # ---------------------------------------------------------------------------
 # Reusable Inference Transformation Function (for FastAPI & Streamlit)
 # ---------------------------------------------------------------------------
+def load_saved_preprocessor(path: Optional[str] = None) -> ColumnTransformer:
+    """
+    Loads serialized ColumnTransformer preprocessor and applies runtime
+    cross-version compatibility fixes (e.g. SimpleImputer _fit_dtype / _fill_dtype
+    differences across scikit-learn 1.7, 1.8, and 1.9+).
+    """
+    p = path or PREPROCESSOR_SAVE_PATH
+    if not os.path.exists(p):
+        raise FileNotFoundError(f"Fitted preprocessor not found at {p}. Run ml_features.py first.")
+    
+    preprocessor = joblib.load(p)
+
+    # SimpleImputer cross-version backward/forward compatibility patch
+    for name, trans, cols in getattr(preprocessor, "transformers_", []):
+        if hasattr(trans, "named_steps"):
+            for s_name, step in trans.named_steps.items():
+                if hasattr(step, "_fit_dtype") and not hasattr(step, "_fill_dtype"):
+                    step._fill_dtype = step._fit_dtype
+                elif hasattr(step, "_fill_dtype") and not hasattr(step, "_fit_dtype"):
+                    step._fit_dtype = step._fill_dtype
+    return preprocessor
+
+
 def transform_raw_records(
     records: List[Dict[str, Any]],
     preprocessor: Optional[ColumnTransformer] = None,
@@ -475,9 +498,16 @@ def transform_raw_records(
     and executes preprocessor.transform() returning a dense matrix ready for model.predict().
     """
     if preprocessor is None:
-        if not os.path.exists(PREPROCESSOR_SAVE_PATH):
-            raise FileNotFoundError(f"Fitted preprocessor not found at {PREPROCESSOR_SAVE_PATH}. Run ml_features.py first.")
-        preprocessor = joblib.load(PREPROCESSOR_SAVE_PATH)
+        preprocessor = load_saved_preprocessor()
+    else:
+        # Guarantee compatibility even if preprocessor was loaded externally
+        for name, trans, cols in getattr(preprocessor, "transformers_", []):
+            if hasattr(trans, "named_steps"):
+                for s_name, step in trans.named_steps.items():
+                    if hasattr(step, "_fit_dtype") and not hasattr(step, "_fill_dtype"):
+                        step._fill_dtype = step._fit_dtype
+                    elif hasattr(step, "_fill_dtype") and not hasattr(step, "_fit_dtype"):
+                        step._fit_dtype = step._fill_dtype
 
     df_raw = pd.DataFrame(records)
 
