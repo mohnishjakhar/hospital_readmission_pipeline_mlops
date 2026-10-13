@@ -5,3 +5,11 @@ psycopg2-binary
 matplotlib
 requests
 plotly
+scikit-learn
+xgboost
+shap
+mlflow
+joblib
+fastapi
+uvicorn
+pydantic

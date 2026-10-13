@@ -29,5 +29,44 @@ services:
     depends_on:
       - postgres
 
+  readmission-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hospital_readmission_api
+    restart: unless-stopped
+    environment:
+      - MLFLOW_TRACKING_URI=sqlite:////app/mlflow.db
+      - DATABASE_URL=postgresql+psycopg2://postgres:hospital_secure_password123@postgres:5432/hospital_mart
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./mlruns:/app/mlruns
+      - ./mlflow.db:/app/mlflow.db
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hospital_readmission_dashboard
+    restart: unless-stopped
+    command: ["streamlit", "run", "dashboard/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    environment:
+      - API_URL=http://readmission-api:8000
+      - DATABASE_URL=postgresql+psycopg2://postgres:hospital_secure_password123@postgres:5432/hospital_mart
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./dashboard:/app/dashboard
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./db:/app/db
+    depends_on:
+      - readmission-api
+
 volumes:
   pgdata:

@@ -15,6 +15,23 @@ venv/
 # Database artifacts
 db/*.db
 db/*.sqlite3
+mlflow.db
+mlruns/
+data/staging/*.parquet
+
+# Generated model artifacts and runtime logs
+models/
+logs/
+
+# Generated reports, diagrams, charts, and presentations
+docs/Project5_Part*_Report.*
+docs/Project5_Part*_Comprehensive_Report.md
+docs/Hospital_Readmission_Project_Presentation.pptx
+docs/architecture_diagram.png
+docs/chart*.png
+docs/hospital_readmission_architecture.excalidraw
+docs/part2_mlops_implementation_plan.md
+docs/shap_*.png
 
 # Airflow
 airflow.cfg
@@ -24,6 +41,3 @@ standalone_admin_password.txt
 # IDE
 .vscode/
 .idea/
-
-#docs
-docs/
