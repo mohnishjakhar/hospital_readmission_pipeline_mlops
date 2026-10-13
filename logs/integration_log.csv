@@ -1,0 +1,6 @@
+metric,value
+total_integrated_rows,69990
+diag_1_lookup_status=MATCHED,51959
+diag_1_lookup_status=NOT_ATTEMPTED,18031
+feedback_available=1,33073
+feedback_available=0,36917
